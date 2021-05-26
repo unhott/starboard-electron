@@ -5,14 +5,12 @@
 // selectively enable features needed in the rendering
 // process.
 
-let StarboardEmbed = window.StarboardEmbed;
-
 window.myElectronPreload.setFileListener((event, fileContents) => {
   
   const mount = document.querySelector("#mount-point");
   mount.innerHTML = '';
 
-  const el = new StarboardEmbed({
+  const el = new window.StarboardEmbed({
       notebookContent: fileContents,
       src: "https://unpkg.com/starboard-notebook@0.9.4/dist/index.html"
   });
