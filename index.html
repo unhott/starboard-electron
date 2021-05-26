@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com/starboard-notebook"> -->
+    <!-- <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com/starboard-notebook"> -->
+    
+    <title>~</title>
+  </head>
+  <body>
+    <h1>starboard-electron</h1>
+    *Please note that this is very simple example and caution must be taken when running scripts within this application!*
+
+    <!-- May require other files to run in this process in the future... -->
+    <script src="./renderer.js"></script>
+
+    <div id="mount-point"></div>
+
+    <script type="module">
+        import {StarboardNotebookIFrame} from "./node_modules/starboard-wrap/dist/index.js"
+        const mount = document.querySelector("#mount-point");
+
+        const el = new StarboardNotebookIFrame({
+            notebookContent: "# %% [javascript]\n3+5\n",
+            src: "https://unpkg.com/starboard-notebook@0.7.12/dist/index.html"
+        });
+
+        el.style.width = "100%";
+        mount.appendChild(el);
+    </script>
+
+  </body>
+</html>
