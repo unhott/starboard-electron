@@ -13,22 +13,23 @@
     *Please note that this is very simple example and caution must be taken when running scripts within this application!*
 
     <!-- May require other files to run in this process in the future... -->
-    <script src="./renderer.js"></script>
 
     <div id="mount-point"></div>
 
     <script type="module">
-        import {StarboardNotebookIFrame} from "./node_modules/starboard-wrap/dist/index.js"
+        import {StarboardEmbed} from "./node_modules/starboard-wrap/dist/index.js"
+        window.StarboardEmbed = StarboardEmbed;
         const mount = document.querySelector("#mount-point");
 
-        const el = new StarboardNotebookIFrame({
+        const el = new StarboardEmbed({
             notebookContent: "# %% [javascript]\n3+5\n",
-            src: "https://unpkg.com/starboard-notebook@0.7.12/dist/index.html"
+            src: "https://unpkg.com/starboard-notebook@0.9.4/dist/index.html"
         });
 
         el.style.width = "100%";
         mount.appendChild(el);
     </script>
+    <script src="./renderer.js"></script>
 
   </body>
 </html>
